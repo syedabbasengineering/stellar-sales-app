@@ -8,9 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "tsc -b tsconfig.build.json",
-    "typecheck": "tsc -b tsconfig.build.json",
-    "clean": "rimraf apps/**/dist packages/**/dist || true",
+    "build": "npx tsc -b tsconfig.build.json",
+    "typecheck": "npx tsc -b tsconfig.build.json",
+    "clean": "npx rimraf apps/*/dist packages/*/dist || true",
     "lint": "echo 'lint disabled'",
     "format": "echo 'prettier check disabled'",
     "format:write": "echo 'prettier write disabled'",
