@@ -12,16 +12,13 @@ concurrency:
 
 jobs:
   typecheck:
-    name: Typecheck (Node ${{ matrix.node }})
+    name: Typecheck (Node 18)
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18, 20]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
           cache: npm
       - run: npm ci
       - name: Cache TS build info
@@ -29,7 +26,7 @@ jobs:
         with:
           path: |
             **/*.tsbuildinfo
-          key: ${{ runner.os }}-tsbuildinfo-${{ matrix.node }}-${{ hashFiles('**/tsconfig*.json') }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-tsbuildinfo-18-${{ hashFiles('**/tsconfig*.json') }}-${{ hashFiles('package-lock.json') }}
       - run: npm run typecheck
 
   lint:
