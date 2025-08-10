@@ -21,6 +21,8 @@ jobs:
           node-version: 18
           cache: npm
       - run: npm ci
+      - name: Build shared first
+        run: npm run -w packages/shared build
       - name: Cache TS build info
         uses: actions/cache@v4
         with:

@@ -1,7 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { config as dotenv } from 'dotenv';
-import { parseServerEnv, type ServerEnv } from '@stellarsales/shared/src/env';
+import { parseServerEnv, type ServerEnv } from '@stellarsales/shared';
 
 export function loadEnv(): ServerEnv {
   const envFiles = [
