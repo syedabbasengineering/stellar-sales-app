@@ -2,18 +2,15 @@
   "name": "backend",
   "version": "0.1.0",
   "private": true,
-  "type": "commonjs",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "src/index.js",
   "scripts": {
-    "build": "tsc -b",
-    "dev": "node --watch dist/index.js",
-    "start": "node dist/index.js"
+    "build": "echo 'no build needed for JavaScript'",
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "@stellarsales/shared": "file:../../packages/shared"
-  },
-  "devDependencies": {
-    "@types/node": "^22.5.5"
   }
 }
 

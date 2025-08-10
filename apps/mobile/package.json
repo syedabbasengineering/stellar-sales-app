@@ -2,15 +2,15 @@
   "name": "mobile",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.jsx",
   "scripts": {
     "build": "echo 'Expo build deferred'",
     "start": "echo 'Start with expo start'"
   },
   "dependencies": {
     "@stellarsales/shared": "file:../../packages/shared"
-  },
-  "devDependencies": {}
+  }
 }
 
 

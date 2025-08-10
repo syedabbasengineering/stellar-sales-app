@@ -11,10 +11,8 @@ export const serverEnvSchema = z.object({
   JWT_SECRET: z.string().min(16),
 });
 
-export type ServerEnv = z.infer<typeof serverEnvSchema>;
-
-export function parseServerEnv(source: Record<string, string | undefined>): ServerEnv {
-  const input: Record<string, string> = {};
+export function parseServerEnv(source) {
+  const input = {};
   for (const key of Object.keys(serverEnvSchema.shape)) {
     const value = source[key];
     if (value !== undefined) {
@@ -23,5 +21,3 @@ export function parseServerEnv(source: Record<string, string | undefined>): Serv
   }
   return serverEnvSchema.parse(input);
 }
-
-

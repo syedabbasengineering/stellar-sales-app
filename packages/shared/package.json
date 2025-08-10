@@ -2,10 +2,10 @@
   "name": "@stellarsales/shared",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "echo 'no build needed for JavaScript'"
   },
   "dependencies": {
     "zod": "^3.23.8"

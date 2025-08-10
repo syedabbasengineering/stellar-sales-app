@@ -1,9 +1,9 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { config as dotenv } from 'dotenv';
-import { parseServerEnv, type ServerEnv } from '@stellarsales/shared';
+import { parseServerEnv } from '@stellarsales/shared';
 
-export function loadEnv(): ServerEnv {
+export function loadEnv() {
   const envFiles = [
     '.env.local',
     '.env',
@@ -14,7 +14,5 @@ export function loadEnv(): ServerEnv {
       dotenv({ path: fullPath, override: true });
     }
   }
-  return parseServerEnv(process.env as Record<string, string | undefined>);
+  return parseServerEnv(process.env);
 }
-
-
