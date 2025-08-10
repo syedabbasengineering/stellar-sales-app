@@ -5,8 +5,8 @@
     "moduleResolution": "Node",
     "baseUrl": ".",
     "paths": {
-      "@stellarsales/shared": ["packages/shared/dist"],
-      "@stellarsales/shared/*": ["packages/shared/dist/*"]
+      "@stellarsales/shared": ["../../packages/shared/dist"],
+      "@stellarsales/shared/*": ["../../packages/shared/dist/*"]
     },
     "types": ["node"],
     "strict": true,
