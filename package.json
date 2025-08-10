@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
-    "typecheck": "tsc -b --pretty false --noEmit tsconfig.build.json",
+    "typecheck": "tsc -b tsconfig.build.json",
     "clean": "rimraf apps/**/dist packages/**/dist || true",
     "lint": "echo 'lint disabled'",
     "format": "echo 'prettier check disabled'",
