@@ -63,7 +63,7 @@ epics:
       - id: TS-002
         title: "CI/CD skeleton"
         description: "Set up GitHub Actions workflows for typecheck, lint, test, and build."
-        status: todo
+        status: done
         estimate: "1.5d"
         acceptance_criteria:
           - "PRs run typecheck, lint, and tests in parallel"
@@ -72,10 +72,11 @@ epics:
         subtasks:
           - id: SB-0004
             title: "GitHub Actions: node setup cache and matrix"
-            status: todo
+            status: done
           - id: SB-0005
             title: "Status checks mandatory for main branch"
-            status: todo
+            status: done
+            notes: "Branch protection enabled via API with required checks: Typecheck, Lint, Test, Build."
       - id: TS-003
         title: "Environment management"
         description: "Define `.env` strategy, secrets management, and environment schemas."
