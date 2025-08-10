@@ -1,0 +1,840 @@
+version: 1
+project: "StellarSalesApp — NEPQ Sales Coaching"
+generated_from: "finalPRD.md"
+last_updated: "2025-08-10"
+conventions:
+  status_values: [todo, in-progress, blocked, in-review, done]
+  estimate_format: "Xd Xh"
+  id_format:
+    epics: "EP-XX"
+    tasks: "TS-XXX"
+    subtasks: "SB-XXXX"
+
+milestones:
+  - id: M1
+    name: "Prototype Foundations"
+    target_date: "2025-09-01"
+    scope: [EP-01, EP-02, EP-03, EP-10, EP-11]
+  - id: M2
+    name: "Real-Time Coaching Alpha"
+    target_date: "2025-10-01"
+    scope: [EP-04, EP-05, EP-06, EP-08]
+  - id: M3
+    name: "Post-Call Analysis Beta"
+    target_date: "2025-11-01"
+    scope: [EP-07, EP-09, EP-12]
+  - id: M4
+    name: "Security, Scale, and Release Candidate"
+    target_date: "2025-12-01"
+    scope: [EP-13, EP-17, EP-18, EP-19]
+  - id: M5
+    name: "Phase 2 — Meetings & Dashboard"
+    target_date: "2026-01-15"
+    scope: [EP-14, EP-15, EP-16]
+
+
+epics:
+  - id: EP-01
+    name: "Project Setup & Foundations"
+    description: "Repo scaffolding, environments, coding standards, and developer productivity."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-001
+        title: "Initialize mono-repo and workspaces"
+        description: "Set up repo with `apps/mobile`, `apps/backend`, `packages/shared`. Configure TypeScript project references."
+        owner: "TBD"
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Repo compiles successfully for mobile and backend with a single command"
+          - "Shared package consumed by both apps"
+        dependencies: []
+        subtasks:
+          - id: SB-0001
+            title: "Create repo structure and package.json workspaces"
+            status: todo
+          - id: SB-0002
+            title: "Configure TypeScript base config and references"
+            status: todo
+          - id: SB-0003
+            title: "Add linting (ESLint), formatting (Prettier), and commit hooks"
+            status: todo
+      - id: TS-002
+        title: "CI/CD skeleton"
+        description: "Set up GitHub Actions workflows for typecheck, lint, test, and build."
+        status: todo
+        estimate: "1.5d"
+        acceptance_criteria:
+          - "PRs run typecheck, lint, and tests in parallel"
+          - "Build artifacts produced for both apps"
+        dependencies: [TS-001]
+        subtasks:
+          - id: SB-0004
+            title: "GitHub Actions: node setup cache and matrix"
+            status: todo
+          - id: SB-0005
+            title: "Status checks mandatory for main branch"
+            status: todo
+      - id: TS-003
+        title: "Environment management"
+        description: "Define `.env` strategy, secrets management, and environment schemas."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Local, staging, prod envs documented and validated"
+          - "Secrets loaded securely for CI and runtime"
+        dependencies: [TS-001]
+        subtasks:
+          - id: SB-0006
+            title: "Zod schema for env validation"
+            status: todo
+          - id: SB-0007
+            title: "Example .env files and README updates"
+            status: todo
+
+  - id: EP-02
+    name: "Mobile App Skeleton (React Native)"
+    description: "React Native app with navigation, theming, and basic screens."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-010
+        title: "Initialize React Native app"
+        description: "Use Expo (dev) with option to eject for production. TypeScript configured."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "App boots on iOS and Android"
+          - "TypeScript and ESLint run clean"
+        dependencies: [TS-001]
+        subtasks:
+          - id: SB-0010
+            title: "Expo initialization and tsconfig"
+            status: todo
+          - id: SB-0011
+            title: "Basic theming and UI toolkit wiring"
+            status: todo
+      - id: TS-011
+        title: "Navigation & base screens"
+        description: "React Navigation with tabs/stack: Home, Calls, Library, Settings."
+        status: todo
+        estimate: "1.5d"
+        acceptance_criteria:
+          - "Can navigate between base screens"
+        dependencies: [TS-010]
+        subtasks:
+          - id: SB-0012
+            title: "Set up navigation container"
+            status: todo
+          - id: SB-0013
+            title: "Create stub screens"
+            status: todo
+      - id: TS-012
+        title: "State management baseline"
+        description: "Configure Redux Toolkit or React Query; pick one per use-case."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Network state cached"
+          - "Slices/queries pattern documented"
+        dependencies: [TS-010]
+        subtasks:
+          - id: SB-0014
+            title: "Install and configure state library"
+            status: todo
+          - id: SB-0015
+            title: "Wire example API call"
+            status: todo
+
+  - id: EP-03
+    name: "Authentication & User Management"
+    description: "OAuth 2.0/JWT, registration, login, roles (rep, manager, admin)."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-020
+        title: "Auth API endpoints"
+        description: "NestJS modules for auth: register, login, refresh, revoke."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "JWT access/refresh tokens issued and validated"
+          - "Password policy and hashing"
+        dependencies: [TS-040, TS-060]
+        subtasks:
+          - id: SB-0020
+            title: "NestJS AuthModule with guards and strategies"
+            status: todo
+          - id: SB-0021
+            title: "Refresh token rotation"
+            status: todo
+      - id: TS-021
+        title: "Mobile auth flows"
+        description: "Login, logout, token storage, protected routes."
+        status: todo
+        estimate: "1.5d"
+        acceptance_criteria:
+          - "Persisted auth state"
+          - "Unauthorized screens gated"
+        dependencies: [TS-020, TS-010]
+        subtasks:
+          - id: SB-0022
+            title: "Login screen and form validation"
+            status: todo
+          - id: SB-0023
+            title: "Token storage and refresh logic"
+            status: todo
+      - id: TS-022
+        title: "Roles & permissions"
+        description: "Role-based access for manager dashboards and features."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "RBAC enforced at API and UI"
+        dependencies: [TS-020]
+        subtasks:
+          - id: SB-0024
+            title: "Define roles and policy middleware"
+            status: todo
+
+  - id: EP-04
+    name: "Real-Time Calling & Consent"
+    description: "VoIP calling (LiveKit/Twilio), consent prompts, and call lifecycle."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-030
+        title: "LiveKit/Twilio evaluation and selection"
+        description: "Spike both options for feasibility, latency, and compliance."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Decision memo committed"
+          - "Prototype demonstrates audio stream and device controls"
+        dependencies: [TS-010]
+        subtasks:
+          - id: SB-0030
+            title: "Prototype LiveKit audio publish/subscribe"
+            status: todo
+          - id: SB-0031
+            title: "Prototype Twilio Programmable Voice"
+            status: todo
+      - id: TS-031
+        title: "Consent UI and logging"
+        description: "Auto-prompt for recording consent; geofencing support; audit logs."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Consent captured before recording"
+          - "Consent logs persisted with timestamps and location where needed"
+        dependencies: [TS-020, TS-060]
+        subtasks:
+          - id: SB-0032
+            title: "Consent modal and flows"
+            status: todo
+          - id: SB-0033
+            title: "Backend consent audit logging"
+            status: todo
+      - id: TS-032
+        title: "Call session lifecycle"
+        description: "Start, pause, resume, end; emit events for STT and coaching."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Session state machine implemented"
+          - "Events emitted over WebSockets"
+        dependencies: [TS-030, TS-020]
+        subtasks:
+          - id: SB-0034
+            title: "Define session events and payloads"
+            status: todo
+          - id: SB-0035
+            title: "Mobile UI for call controls"
+            status: todo
+
+  - id: EP-05
+    name: "Real-Time STT Streaming"
+    description: "Streaming speech-to-text integration (Deepgram primary, fallback providers)."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-040
+        title: "STT gateway service"
+        description: "Backend service that receives audio stream, forwards to provider, normalizes transcript events."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Handles word-level timestamps and speaker labels where available"
+          - "Backoff and provider failover"
+        dependencies: [TS-032]
+        subtasks:
+          - id: SB-0040
+            title: "Deepgram streaming integration"
+            status: todo
+          - id: SB-0041
+            title: "AssemblyAI fallback path"
+            status: todo
+      - id: TS-041
+        title: "Mobile audio capture and streaming"
+        description: "Low-latency microphone capture, stream via WebSocket to backend."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "<250ms end-to-end transcript latency on WiFi"
+        dependencies: [TS-030, TS-040]
+        subtasks:
+          - id: SB-0042
+            title: "Audio capture native modules"
+            status: todo
+          - id: SB-0043
+            title: "WebSocket transport"
+            status: todo
+
+  - id: EP-06
+    name: "Real-Time Coaching Overlay"
+    description: "In-call tips triggered by NEPQ gaps, tonality mismatch, and objections."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-050
+        title: "Tip trigger rules engine (real-time)"
+        description: "Deterministic rules to detect missing NEPQ types and tonality issues during calls."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Rule set configurable via JSON"
+          - "Unit tests cover key scenarios"
+        dependencies: [TS-040, TS-060]
+        subtasks:
+          - id: SB-0050
+            title: "Define rule schema and loader"
+            status: todo
+          - id: SB-0051
+            title: "Implement rule evaluation pipeline"
+            status: todo
+      - id: TS-051
+        title: "In-call UI overlay"
+        description: "Popup tips and optional TTS playback with minimal distraction."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Tips shown contextually with dismiss controls"
+          - "Optional TTS playback toggle"
+        dependencies: [TS-050, TS-041]
+        subtasks:
+          - id: SB-0052
+            title: "Overlay component and animation"
+            status: todo
+          - id: SB-0053
+            title: "TTS playback integration"
+            status: todo
+
+  - id: EP-07
+    name: "Post-Call Analysis & Reports"
+    description: "Full transcript, key takeaways, NEPQ scoring, and recommendations."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-060
+        title: "Transcript ingestion & storage"
+        description: "Persist transcripts with timestamps, speakers, and metadata."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Transcript saved to DB and S3 audio linked"
+          - "Retrieval API supports pagination"
+        dependencies: [TS-040]
+        subtasks:
+          - id: SB-0060
+            title: "Prisma models: Call, Transcript, Utterance"
+            status: todo
+          - id: SB-0061
+            title: "Upload audio to S3-compatible storage"
+            status: todo
+      - id: TS-061
+        title: "NEPQ scoring service (batch)"
+        description: "Compute per-stage scores and overall NEPQ score using weighted model."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Scores reproducible given same transcript"
+          - "Stage breakdown returned via API"
+        dependencies: [TS-060, TS-080]
+        subtasks:
+          - id: SB-0062
+            title: "Implement weighted scoring per PRD Section 5.2"
+            status: todo
+          - id: SB-0063
+            title: "Store score snapshots for history"
+            status: todo
+      - id: TS-062
+        title: "Analysis results UI"
+        description: "Post-call screen with transcript, highlights, missed types, and suggestions."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Scrollable transcript with highlights"
+          - "Top 3 recommendations shown"
+        dependencies: [TS-061]
+        subtasks:
+          - id: SB-0064
+            title: "Transcript viewer with timestamps"
+            status: todo
+          - id: SB-0065
+            title: "Recommendations component"
+            status: todo
+
+  - id: EP-08
+    name: "NEPQ Analysis Engine"
+    description: "Segmentation by stage, coverage detection of question types, sequence scoring, tonality checks, and objection detection."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-070
+        title: "Stage segmentation"
+        description: "Detect transitions between NEPQ stages using regex + keywords + semantic cues."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Stages identified with confidence score"
+        dependencies: [TS-040]
+        subtasks:
+          - id: SB-0070
+            title: "Define stage cues and patterns"
+            status: todo
+          - id: SB-0071
+            title: "Implement segmentation and unit tests"
+            status: todo
+      - id: TS-071
+        title: "Coverage detection of 7 question types"
+        description: "Track usage and mark missing types with timestamps."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Per-type usage counts and first/last timestamps"
+        dependencies: [TS-070]
+        subtasks:
+          - id: SB-0072
+            title: "Implement detection pipeline based on `questionTypes`"
+            status: todo
+      - id: TS-072
+        title: "Sequence scoring"
+        description: "Compare actual question order to recommended NEPQ flow."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Deterministic penalties for out-of-order sections"
+        dependencies: [TS-071]
+        subtasks:
+          - id: SB-0073
+            title: "Define ideal flow and penalties"
+            status: todo
+      - id: TS-073
+        title: "Tonality & prosody checks"
+        description: "Detect pace, pitch, energy issues and interruptions or monologues."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Prosody metrics computed and flagged per stage"
+        dependencies: [TS-040]
+        subtasks:
+          - id: SB-0074
+            title: "Extract prosody metrics from audio or provider metadata"
+            status: todo
+      - id: TS-074
+        title: "Objection detection & rebuttal recommendations"
+        description: "Detect objection phrases and recommend 2 top rebuttal questions by category."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Objection categories mapped with confidence"
+          - "Top-2 rebuttals returned with rationale"
+        dependencies: [TS-070, TS-090]
+        subtasks:
+          - id: SB-0075
+            title: "Keyword/semantic matching for objections"
+            status: todo
+          - id: SB-0076
+            title: "Rebuttal selection logic"
+            status: todo
+
+  - id: EP-09
+    name: "Coaching Content Library"
+    description: "Indexed coaching explanations, rebuttals, and objection categories; searchable."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-080
+        title: "Content schema and seed"
+        description: "Define content schema and seed from PRD appendices (question types, objections, rebuttals)."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Seed script populates DB"
+        dependencies: [TS-060]
+        subtasks:
+          - id: SB-0080
+            title: "Schema for questionTypes, objectionCategories, rebuttalQuestions"
+            status: todo
+          - id: SB-0081
+            title: "Seed data alignment with PRD"
+            status: todo
+      - id: TS-081
+        title: "Search API"
+        description: "Search by keyword, NEPQ stage, or objection type."
+        status: todo
+        estimate: "1.5d"
+        acceptance_criteria:
+          - "Filters + pagination"
+        dependencies: [TS-080]
+        subtasks:
+          - id: SB-0082
+            title: "Text index and filter mapping"
+            status: todo
+
+  - id: EP-10
+    name: "Backend API & Services (NestJS)"
+    description: "REST and WebSockets for auth, calls, transcripts, scoring, content, and coaching."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-090
+        title: "WebSocket real-time API"
+        description: "Socket namespace for audio, transcript events, and coaching tips."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Binary audio frames and transcript messages handled"
+        dependencies: [TS-040]
+        subtasks:
+          - id: SB-0090
+            title: "WS gateway and message schema"
+            status: todo
+      - id: TS-091
+        title: "REST endpoints"
+        description: "CRUD for calls, transcripts, scores, content."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "OpenAPI spec generated"
+        dependencies: [TS-060]
+        subtasks:
+          - id: SB-0091
+            title: "OpenAPI generation and docs"
+            status: todo
+
+  - id: EP-11
+    name: "Data & Storage"
+    description: "PostgreSQL via Prisma, S3-compatible object storage, Redis for cache/queue."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-100
+        title: "Database setup"
+        description: "Provision Postgres, configure Prisma, migrations."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Migrations run in CI"
+        dependencies: [TS-001]
+        subtasks:
+          - id: SB-0100
+            title: "Prisma schema baseline"
+            status: todo
+      - id: TS-101
+        title: "Object storage"
+        description: "S3-compatible bucket for audio recordings with lifecycle policy."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Signed URL upload/download"
+        dependencies: [TS-060]
+        subtasks:
+          - id: SB-0101
+            title: "S3 client and env config"
+            status: todo
+      - id: TS-102
+        title: "Redis cache/queue"
+        description: "Session state for WebSockets and async jobs."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Job queue for post-call scoring"
+        dependencies: [TS-090]
+        subtasks:
+          - id: SB-0102
+            title: "BullMQ setup"
+            status: todo
+
+  - id: EP-12
+    name: "Infrastructure & DevOps"
+    description: "Hosting, deployment pipelines, and observability."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-110
+        title: "Containerization"
+        description: "Dockerfiles for backend and workers; multi-stage builds."
+        status: todo
+        estimate: "1.5d"
+        acceptance_criteria:
+          - "Images build and run locally and in CI"
+        dependencies: [TS-090, TS-100]
+        subtasks:
+          - id: SB-0110
+            title: "Backend Dockerfile + compose for local"
+            status: todo
+      - id: TS-111
+        title: "Deploy to chosen host"
+        description: "ECS/Fargate or Fly.io with CD."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Blue/green or rolling deployments"
+        dependencies: [TS-110]
+        subtasks:
+          - id: SB-0111
+            title: "IaC template and environment provisioning"
+            status: todo
+      - id: TS-112
+        title: "Observability"
+        description: "Logging, metrics, tracing, and dashboards."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Error rate, latency, and queue depth monitored"
+        dependencies: [TS-111]
+        subtasks:
+          - id: SB-0112
+            title: "Structured logging and APM"
+            status: todo
+
+  - id: EP-13
+    name: "Security & Compliance"
+    description: "TLS everywhere, encryption at rest, consent compliance, OAuth2/JWT, data retention."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-120
+        title: "Encryption & transport"
+        description: "TLS/HTTPS across services; AES-256 at rest for recordings."
+        status: todo
+        estimate: "1.5d"
+        acceptance_criteria:
+          - "All endpoints served over HTTPS"
+        dependencies: [TS-111]
+        subtasks:
+          - id: SB-0120
+            title: "KMS or provider-managed encryption"
+            status: todo
+      - id: TS-121
+        title: "Consent compliance and geofencing"
+        description: "Two-party consent jurisdictions and logging."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Geofence rules applied before recording"
+        dependencies: [TS-031]
+        subtasks:
+          - id: SB-0121
+            title: "Geo lookup and rules engine"
+            status: todo
+      - id: TS-122
+        title: "Data retention policy"
+        description: "Configurable retention per organization."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Automated cleanup jobs respect policy"
+        dependencies: [TS-101]
+        subtasks:
+          - id: SB-0122
+            title: "Retention scheduler and tests"
+            status: todo
+
+  - id: EP-14
+    name: "Web Dashboard (Phase 2)"
+    description: "React web dashboard for managers/admins."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-130
+        title: "Dashboard scaffold"
+        description: "Vercel-hosted React app with auth."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Login and basic layout"
+        dependencies: [TS-091]
+        subtasks:
+          - id: SB-0130
+            title: "Table of calls with filters"
+            status: todo
+      - id: TS-131
+        title: "Score and coaching views"
+        description: "Per-call detail page with transcript and coaching insights."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Stage breakdown and recommendations visible"
+        dependencies: [TS-061]
+        subtasks:
+          - id: SB-0131
+            title: "Transcript and highlights UI"
+            status: todo
+
+  - id: EP-15
+    name: "Meeting Integrations (Phase 2)"
+    description: "Zoom and Google Meet ingestion and live tips."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-140
+        title: "Zoom Meeting SDK integration"
+        description: "Ingest audio/transcripts from Zoom for analysis."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Auth and event subscription working"
+        dependencies: [TS-040, TS-060]
+        subtasks:
+          - id: SB-0140
+            title: "Zoom OAuth and event webhooks"
+            status: todo
+      - id: TS-141
+        title: "Google Meet API integration"
+        description: "Ingest/transcribe Meet sessions."
+        status: todo
+        estimate: "3d"
+        acceptance_criteria:
+          - "Auth and ingestion pipeline working"
+        dependencies: [TS-040, TS-060]
+        subtasks:
+          - id: SB-0141
+            title: "Meet API auth and data flow"
+            status: todo
+
+  - id: EP-16
+    name: "TTS Voice Guidance"
+    description: "Native and optional cloud TTS for reading tips during calls."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-150
+        title: "Native TTS integration"
+        description: "iOS AVSpeechSynthesizer and Android TextToSpeech wrappers."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Configurable voice, rate, and volume"
+        dependencies: [TS-051]
+        subtasks:
+          - id: SB-0150
+            title: "Abstraction layer for TTS"
+            status: todo
+      - id: TS-151
+        title: "Cloud TTS option"
+        description: "ElevenLabs/Play.ht integration behind a flag."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Fallback to native if cloud fails"
+        dependencies: [TS-150]
+        subtasks:
+          - id: SB-0151
+            title: "Provider-agnostic interface"
+            status: todo
+
+  - id: EP-17
+    name: "Analytics & Telemetry"
+    description: "Event tracking, usage analytics, and performance metrics."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-160
+        title: "Client analytics events"
+        description: "Track call lifecycle, tips shown, and feature usage."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Events sent with consent and opt-out"
+        dependencies: [TS-032]
+        subtasks:
+          - id: SB-0160
+            title: "Event schema and batching"
+            status: todo
+      - id: TS-161
+        title: "Backend analytics pipeline"
+        description: "Ingest, store, and visualize key events."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Dashboards for call volume and coaching impact"
+        dependencies: [TS-112]
+        subtasks:
+          - id: SB-0161
+            title: "ETL to warehouse or time-series DB"
+            status: todo
+
+  - id: EP-18
+    name: "QA, Testing & Release"
+    description: "Automated tests, manual QA, and app store release workflows."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-170
+        title: "Testing strategy"
+        description: "Unit, integration, and end-to-end tests across services."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "Coverage thresholds and CI enforcement"
+        dependencies: [TS-001]
+        subtasks:
+          - id: SB-0170
+            title: "Set up Jest/Detox where applicable"
+            status: todo
+      - id: TS-171
+        title: "Release pipelines"
+        description: "Build and sign mobile apps; versioning and change logs."
+        status: todo
+        estimate: "2d"
+        acceptance_criteria:
+          - "TestFlight/internal testing enabled"
+        dependencies: [TS-010, TS-111]
+        subtasks:
+          - id: SB-0171
+            title: "iOS and Android signing setup"
+            status: todo
+
+  - id: EP-19
+    name: "Documentation & Enablement"
+    description: "Developer docs, runbooks, and user guides."
+    owner: "TBD"
+    status: todo
+    tasks:
+      - id: TS-180
+        title: "Developer onboarding"
+        description: "Setup guides for local dev, envs, and testing."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "New devs can run end-to-end locally"
+        dependencies: [TS-001]
+        subtasks:
+          - id: SB-0180
+            title: "Onboarding checklist"
+            status: todo
+      - id: TS-181
+        title: "Runbooks and SLOs"
+        description: "Operational documentation for incidents and reliability."
+        status: todo
+        estimate: "1d"
+        acceptance_criteria:
+          - "Basic SLOs defined and monitored"
+        dependencies: [TS-112]
+        subtasks:
+          - id: SB-0181
+            title: "Incident response playbooks"
+            status: todo
