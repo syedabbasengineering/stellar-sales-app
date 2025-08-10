@@ -10,9 +10,11 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@stellarsales/shared": "workspace:*"
+    "@stellarsales/shared": "file:../../packages/shared"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^22.5.5"
+  }
 }
 
 

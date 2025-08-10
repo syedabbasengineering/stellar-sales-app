@@ -80,7 +80,7 @@ epics:
       - id: TS-003
         title: "Environment management"
         description: "Define `.env` strategy, secrets management, and environment schemas."
-        status: todo
+        status: in-review
         estimate: "1d"
         acceptance_criteria:
           - "Local, staging, prod envs documented and validated"
@@ -89,10 +89,10 @@ epics:
         subtasks:
           - id: SB-0006
             title: "Zod schema for env validation"
-            status: todo
+            status: done
           - id: SB-0007
             title: "Example .env files and README updates"
-            status: todo
+            status: done
 
   - id: EP-02
     name: "Mobile App Skeleton (React Native)"

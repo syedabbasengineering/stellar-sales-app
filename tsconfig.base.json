@@ -8,6 +8,7 @@
       "@stellarsales/shared": ["packages/shared/dist"],
       "@stellarsales/shared/*": ["packages/shared/dist/*"]
     },
+    "types": ["node"],
     "strict": true,
     "declaration": true,
     "sourceMap": true,

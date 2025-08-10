@@ -8,7 +8,7 @@
     "start": "echo 'Start with expo start'"
   },
   "dependencies": {
-    "@stellarsales/shared": "workspace:*"
+    "@stellarsales/shared": "file:../../packages/shared"
   },
   "devDependencies": {}
 }
