@@ -44,7 +44,7 @@ epics:
         title: "Initialize mono-repo and workspaces"
         description: "Set up repo with `apps/mobile`, `apps/backend`, `packages/shared`. Configure TypeScript project references."
         owner: "TBD"
-        status: todo
+        status: done
         estimate: "2d"
         acceptance_criteria:
           - "Repo compiles successfully for mobile and backend with a single command"
@@ -53,13 +53,13 @@ epics:
         subtasks:
           - id: SB-0001
             title: "Create repo structure and package.json workspaces"
-            status: todo
+            status: done
           - id: SB-0002
             title: "Configure TypeScript base config and references"
-            status: todo
+            status: done
           - id: SB-0003
             title: "Add linting (ESLint), formatting (Prettier), and commit hooks"
-            status: todo
+            status: done
       - id: TS-002
         title: "CI/CD skeleton"
         description: "Set up GitHub Actions workflows for typecheck, lint, test, and build."

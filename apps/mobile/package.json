@@ -1,0 +1,16 @@
+{
+  "name": "mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Expo build deferred'",
+    "start": "echo 'Start with expo start'"
+  },
+  "dependencies": {
+    "@stellarsales/shared": "workspace:*"
+  },
+  "devDependencies": {}
+}
+
+
