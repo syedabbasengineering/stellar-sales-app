@@ -1,11 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
+import { sharedHello } from '@stellarsales/shared';
 
 export default function HomeScreen() {
+  const { data, isLoading } = useQuery({
+    queryKey: ['hello'],
+    queryFn: async () => {
+      // Example placeholder API call
+      await new Promise((r) => setTimeout(r, 400));
+      return { message: sharedHello() };
+    },
+  });
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Home</Text>
-      <Text>Welcome to StellarSales Mobile</Text>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <Text testID="helloText">{data?.message}</Text>
+      )}
     </View>
   );
 }
