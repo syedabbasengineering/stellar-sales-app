@@ -10,8 +10,8 @@
     "start": "node src/index.js"
   },
   "dependencies": {
-    "@stellarsales/shared": "file:../../packages/shared"
+    "@stellarsales/shared": "file:../../packages/shared",
+    "express": "^5.1.0",
+    "livekit-server-sdk": "^2.13.2"
   }
 }
-
-
