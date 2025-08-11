@@ -103,7 +103,7 @@ epics:
       - id: TS-010
         title: "Initialize React Native app"
         description: "Use Expo (dev) with option to eject for production. TypeScript configured."
-        status: in-progress
+        status: done
         estimate: "2d"
         acceptance_criteria:
           - "App boots on iOS and Android"
@@ -119,7 +119,7 @@ epics:
       - id: TS-011
         title: "Navigation & base screens"
         description: "React Navigation with tabs/stack: Home, Calls, Library, Settings."
-        status: todo
+        status: in-progress
         estimate: "1.5d"
         acceptance_criteria:
           - "Can navigate between base screens"
@@ -127,10 +127,10 @@ epics:
         subtasks:
           - id: SB-0012
             title: "Set up navigation container"
-            status: todo
+            status: done
           - id: SB-0013
             title: "Create stub screens"
-            status: todo
+            status: done
       - id: TS-012
         title: "State management baseline"
         description: "Configure Redux Toolkit or React Query; pick one per use-case."
