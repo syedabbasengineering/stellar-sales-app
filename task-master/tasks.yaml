@@ -103,7 +103,7 @@ epics:
       - id: TS-010
         title: "Initialize React Native app"
         description: "Use Expo (dev) with option to eject for production. TypeScript configured."
-        status: todo
+        status: in-progress
         estimate: "2d"
         acceptance_criteria:
           - "App boots on iOS and Android"
@@ -112,7 +112,7 @@ epics:
         subtasks:
           - id: SB-0010
             title: "Expo initialization and tsconfig"
-            status: todo
+            status: done
           - id: SB-0011
             title: "Basic theming and UI toolkit wiring"
             status: todo

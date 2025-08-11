@@ -1,3 +1,1 @@
-import { sharedHello } from '@stellarsales/shared';
-
-export const placeholder = `Mobile app placeholder + ${sharedHello()}`;
+// Replaced by Expo App entry
