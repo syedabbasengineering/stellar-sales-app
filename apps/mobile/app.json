@@ -8,6 +8,11 @@
     "orientation": "portrait",
     "updates": {
       "fallbackToCacheTimeout": 0
+    },
+    "extra": {
+      "eas": {
+        "projectId": "local-dev"
+      }
     }
   }
 }
