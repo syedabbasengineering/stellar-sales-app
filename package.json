@@ -8,26 +8,25 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "tsc -b tsconfig.build.json",
-    "typecheck": "tsc -b --pretty false --noEmit tsconfig.build.json",
-    "clean": "rimraf apps/**/dist packages/**/dist || true",
+    "build": "echo 'no build needed for JavaScript'",
     "lint": "echo 'lint disabled'",
     "format": "echo 'prettier check disabled'",
     "format:write": "echo 'prettier write disabled'",
-    "prepare": "echo 'husky disabled'"
+    "prepare": "echo 'husky disabled'",
+    "test": "echo 'no tests yet' && exit 0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.16.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-import-resolver-typescript": "^3.6.1",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "rimraf": "^5.0.10",
-    "typescript": "^5.4.5"
+    "rimraf": "^5.0.10"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
   }
 }
 

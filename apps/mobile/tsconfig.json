@@ -1,13 +1,14 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "outDir": "./dist"
+    "strict": true,
+    "noEmit": true,
+    "jsx": "react-native",
+    "baseUrl": "."
   },
-  "include": ["src"],
-  "references": [
-    { "path": "../../packages/shared" }
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }
-
 

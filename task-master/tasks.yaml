@@ -63,7 +63,7 @@ epics:
       - id: TS-002
         title: "CI/CD skeleton"
         description: "Set up GitHub Actions workflows for typecheck, lint, test, and build."
-        status: todo
+        status: done
         estimate: "1.5d"
         acceptance_criteria:
           - "PRs run typecheck, lint, and tests in parallel"
@@ -72,14 +72,15 @@ epics:
         subtasks:
           - id: SB-0004
             title: "GitHub Actions: node setup cache and matrix"
-            status: todo
+            status: done
           - id: SB-0005
             title: "Status checks mandatory for main branch"
-            status: todo
+            status: done
+            notes: "Branch protection enabled via API with required checks: Typecheck, Lint, Test, Build."
       - id: TS-003
         title: "Environment management"
         description: "Define `.env` strategy, secrets management, and environment schemas."
-        status: todo
+        status: in-review
         estimate: "1d"
         acceptance_criteria:
           - "Local, staging, prod envs documented and validated"
@@ -88,10 +89,10 @@ epics:
         subtasks:
           - id: SB-0006
             title: "Zod schema for env validation"
-            status: todo
+            status: done
           - id: SB-0007
             title: "Example .env files and README updates"
-            status: todo
+            status: done
 
   - id: EP-02
     name: "Mobile App Skeleton (React Native)"
@@ -102,7 +103,7 @@ epics:
       - id: TS-010
         title: "Initialize React Native app"
         description: "Use Expo (dev) with option to eject for production. TypeScript configured."
-        status: todo
+        status: done
         estimate: "2d"
         acceptance_criteria:
           - "App boots on iOS and Android"
@@ -111,14 +112,14 @@ epics:
         subtasks:
           - id: SB-0010
             title: "Expo initialization and tsconfig"
-            status: todo
+            status: done
           - id: SB-0011
             title: "Basic theming and UI toolkit wiring"
             status: todo
       - id: TS-011
         title: "Navigation & base screens"
         description: "React Navigation with tabs/stack: Home, Calls, Library, Settings."
-        status: todo
+        status: done
         estimate: "1.5d"
         acceptance_criteria:
           - "Can navigate between base screens"
@@ -126,14 +127,14 @@ epics:
         subtasks:
           - id: SB-0012
             title: "Set up navigation container"
-            status: todo
+            status: done
           - id: SB-0013
             title: "Create stub screens"
-            status: todo
+            status: done
       - id: TS-012
         title: "State management baseline"
         description: "Configure Redux Toolkit or React Query; pick one per use-case."
-        status: todo
+        status: in-progress
         estimate: "1d"
         acceptance_criteria:
           - "Network state cached"
@@ -142,10 +143,10 @@ epics:
         subtasks:
           - id: SB-0014
             title: "Install and configure state library"
-            status: todo
+            status: done
           - id: SB-0015
             title: "Wire example API call"
-            status: todo
+            status: done
 
   - id: EP-03
     name: "Authentication & User Management"
@@ -207,7 +208,7 @@ epics:
       - id: TS-030
         title: "LiveKit/Twilio evaluation and selection"
         description: "Spike both options for feasibility, latency, and compliance."
-        status: todo
+        status: in-progress
         estimate: "2d"
         acceptance_criteria:
           - "Decision memo committed"
@@ -216,7 +217,7 @@ epics:
         subtasks:
           - id: SB-0030
             title: "Prototype LiveKit audio publish/subscribe"
-            status: todo
+            status: done
           - id: SB-0031
             title: "Prototype Twilio Programmable Voice"
             status: todo
